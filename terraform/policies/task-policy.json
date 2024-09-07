@@ -1,0 +1,66 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DynamoDBIndexAndStreamAccess",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:GetShardIterator",
+        "dynamodb:Scan",
+        "dynamodb:Query",
+        "dynamodb:DescribeStream",
+        "dynamodb:GetRecords",
+        "dynamodb:ListStreams"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:ap-southeast-1:918195417335:table/todo",
+        "arn:aws:dynamodb:ap-southeast-1:918195417335:table/todo/*"
+      ]
+    },
+    {
+      "Sid": "DynamoDBTableAccess",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:BatchGetItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:ConditionCheckItem",
+        "dynamodb:PutItem",
+        "dynamodb:DescribeTable",
+        "dynamodb:DeleteItem",
+        "dynamodb:GetItem",
+        "dynamodb:Scan",
+        "dynamodb:Query",
+        "dynamodb:UpdateItem"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:ap-southeast-1:918195417335:table/",
+        "arn:aws:dynamodb:ap-southeast-1:918195417335:table/*"
+      ]
+    },
+    {
+      "Sid": "DynamoDBDescribeLimitsAccess",
+      "Effect": "Allow",
+      "Action": "dynamodb:DescribeLimits",
+      "Resource": [
+        "arn:aws:dynamodb:ap-southeast-1:918195417335:table/",
+        "arn:aws:dynamodb:ap-southeast-1:918195417335:table/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:GetObject", "s3:GetObjectAcl"],
+      "Resource": [
+        "arn:aws:s3:::recognition-employees/*",
+        "arn:aws:s3:::recognition-guest/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": [
+        "arn:aws:s3:::recognition-employees",
+        "arn:aws:s3:::recognition-guest"
+      ]
+    }
+  ]
+}
